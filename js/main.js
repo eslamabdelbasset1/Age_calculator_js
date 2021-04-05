@@ -1,5 +1,5 @@
-// Variables For Datepicker
-var datePicker = document.getElementById("datePicker");
+// Variables For Date Calculate
+var dateCalculate = document.getElementById("dateCalculate");
 var chooseDate = document.getElementById("chooseDate");
 
 // Variables For Prinitng Values
@@ -10,19 +10,19 @@ var ageHours = document.getElementById("ageHours");
 var ageSeconds = document.getElementById("ageSeconds");
 var ageMilliseconds = document.getElementById("ageMilliseconds");
 
-datePicker.addEventListener('change', function(){
+dateCalculate.addEventListener('change', function(){
     var options = { year: 'numeric', month: 'long', day: 'numeric'};
-    var selectedDate = new Date(this.value);
-    var DOB = selectedDate.toLocaleDateString('en-US', options);
+    var selectDate = new Date(this.value);
+    var DOB = selectDate.toLocaleDateString('en-US', options);
 
     chooseDate.innerHTML = "DOB : " + " " + DOB;
 
-    var milliseconds_btw_DOB = Date.parse(DOB);
-    var milliseconds_btw_Now = Date.now();
+    var milliseconds_DOB = Date.parse(DOB);
+    var milliseconds_Now = Date.now();
 
-    var age_in_Milliseconds = milliseconds_btw_Now - milliseconds_btw_DOB;
+    var totalMilliseconds = milliseconds_Now - milliseconds_DOB;
 
-    var milliseconds = age_in_Milliseconds;
+    var milliseconds = totalMilliseconds;
     var second = 1000;
     var minute = second*60;
     var hour = minute*60;

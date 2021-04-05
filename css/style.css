@@ -4,18 +4,17 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     position: relative;
     width: 100%;
     min-height: 100vh;
     background-image: linear-gradient(to right, #282828 0%, #f5fafa 100%);
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Source Sans Pro', sans-serif;
 }
-.box{
+.box-age{
     position: relative;
     background: rgba(255,255,255,.6);
     width: 768px;
@@ -24,35 +23,47 @@ body {
     border-radius: 20px;
     transition: width 500ms ease;
 }
-.box h4{
+.box-age h4{
     text-align: center;
     margin-bottom: 20px;
     font-size: 1.2rem;
     text-transform: uppercase;
+    position: relative;
 }
-.box .date-picker{
+.box-age h4::after{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    width:10%;
+    height: 1px;
+    background: #9d8e8e;
+}
+.box-age:hover h4::after{width: 20%}
+.box-age .date-title{
     position: relative;
     display: flex;
     align-items: center;
 }
-.box .date-picker input{
+.box-age .date-title input{
     margin: 0 10px;
     border: 0;
     padding: 0.5rem;
     border-radius: 10px;
     transition: box-shadow 500ms ease;
 }
-.box .date-picker input:focus{
+.box-age .date-title input:focus{
     outline: none;
     box-shadow: 0 0 10px #292929;
 }
-.box .date-picker span
+.box-age .date-title span
 {
     font-size: 1.15rem;
     display: inline-block;
     text-transform: uppercase;
 }
-.box .data-picker span#chooseDate{margin-left: auto;}
+#chooseDate{margin-left: 25%;}
 .age-calc
 {
     position: relative;
@@ -70,7 +81,7 @@ body {
     max-height: 1000px;
     opacity:1;
 }
-.age-calc .age-bok{
+.age-calc .box-options{
     position: relative;
     background: #fff;
     border-radius: 10px;
@@ -78,7 +89,8 @@ body {
     width:222px;
     transition: 500ms ease;
 }
-.age-calc .age-bok p.header
+
+.age-calc .box-options p.age-title
 {
     position: relative;
     text-align: center;
@@ -90,11 +102,11 @@ body {
     font-weight: 500;
     text-transform: uppercase;
 }
-.age-calc .age-bok:nth-child(even) p.header
+.age-calc .box-options:nth-child(even) p.age-title
 {
     background:#292929;
 }
-.age-calc .age-bok .value{
+.age-calc .box-options .value{
     text-align: center;
     padding: 30px 20px;
     font-size: 1.5rem;
@@ -108,52 +120,55 @@ body {
         display: block;
         margin: 2rem 0;
     }
-    .box{
-        width: 600px;
+    .box-age{
+        width: 80%;
         margin: 0 auto;
     }
-    .age-calc .age-box{
-        width: 150px;
-        margin: 15px;
+    .age-calc .box-options{
+        width: 200px;
+        margin: 15px auto;
     }
-    .age-calc .age-box p.header{
+    .age-calc .box-options p.age-title{
         padding: 10px 20px;
         font-size: 1rem;
     }
-    .age-calc .age-box .value{
+    .age-calc .box-options .value{
         padding: 30px 20px;
         font-size: 1rem;
     }
+    #chooseDate{margin-left: auto;}
 }
 
-@media (max-width: 600px)
+@media (max-width: 576px)
 {
-    .box
+    .box-age
     {
-        width: 300px;
+        width: 60%;
+        margin: 0 auto;
     }
-    .box .date-picker
+    .box-age .date-title
     {
         display: block;
     }
-    .box .date-picker input
+    .box-age .date-title input
     {
         margin: 10px 0;
         width: 100%;
     }
-    .age-calc .age-box{
-        width: 120px;
-        margin: 5px;
+    .age-calc .box-options{
+        width: 180px;
+        margin: 8px auto;
     }
-    .age-calc .age-box p.header{
+    .age-calc .box-options p.age-title{
         padding: 10px 5px;
         font-size: .8rem;
     }
-    .age-calc .age-box .value
+    .age-calc .box-options .value
     {
         padding: 30px 5px;
         font-size: .9rem;
     }
+
 }
 
 
